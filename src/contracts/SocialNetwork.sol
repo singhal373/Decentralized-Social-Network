@@ -1,4 +1,5 @@
 pragma solidity ^0.5.0;
+import {Constants} from "./Constants.sol";
 
 contract SocialNetwork {
   string public name; // state variable
@@ -6,36 +7,34 @@ contract SocialNetwork {
   mapping(uint => Post) public posts;
 
   struct Post {
+    address author;
     uint id;
     string content;
     uint tipAmount;
-    address author;
   }
-
-
   event PostCreated(
+      address payable author,
       uint id,
       string content,
-      uint tipAmount,
-      address payable author
+      uint tipAmount
   );
 
   event PostTipped(
+      address payable author,
       uint id,
       string content,
-      uint tipAmount,
-      address payable author
+      uint tipAmount
   );
 
   constructor() public {
-    name = "Decentralized Social Network App";
+    name = Constants.getNetworkName();
   }
 
   function createPost(string memory _postContent) public {
     require(bytes(_postContent).length > 0);
     postCount ++;
-    posts[postCount] = Post(postCount, _postContent, 0, msg.sender);
-    emit PostCreated(postCount, _postContent, 0, msg.sender);
+    posts[postCount] = Post(msg.sender, postCount, _postContent, 0);
+    emit PostCreated(msg.sender,postCount, _postContent, 0);
   }
 
   function tipPost(uint _id) public payable{
@@ -45,7 +44,7 @@ contract SocialNetwork {
     address(_author).transfer(msg.value);
     _post.tipAmount = msg.value + _post.tipAmount;
     posts[_id] = _post;
-    emit PostTipped(postCount, _post.content, _post.tipAmount,_author);
+    emit PostTipped(_author,postCount, _post.content, _post.tipAmount);
   }
 
 }
