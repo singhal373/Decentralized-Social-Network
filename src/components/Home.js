@@ -3,6 +3,7 @@ import Web3 from 'web3'
 import SocialNetwork from '../abis/SocialNetwork.json';
 import Main from './Main';
 import Newsfeed from './Newsfeed';
+import UserPage  from './UserPage';
 import './styles/Home.css';
 
 class Home extends Component {
@@ -96,12 +97,12 @@ class Home extends Component {
           </nav>
       {/* { this.state.loading
         ? <div id="loader" className="text-center mt-5 pt-5 text-white"><p>Loading...</p></div>
-        : */}
+        : */} 
          <Newsfeed
             posts={this.state.posts}
             createPost={this.createPost}
             tipPost={this.tipPost}
-          />
+          />  
        {/* } */}
     </div>
     );

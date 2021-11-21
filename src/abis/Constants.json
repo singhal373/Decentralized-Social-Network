@@ -32,14 +32,14 @@
       "signature": "0x94074b03"
     }
   ],
-  "bytecode": "0x610210610030600b82828239805160001a6073146000811461002057610022565bfe5b5030600052607381538281f3fe7300000000000000000000000000000000000000003014608060405260043610610063576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634d786e3e1461006857806394074b03146100eb575b600080fd5b61007061016e565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100b0578082015181840152602081019050610095565b50505050905090810190601f1680156100dd5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100f36101a7565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610133578082015181840152602081019050610118565b50505050905090810190601f1680156101605780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6040805190810160405280602081526020017f49424320446563656e7472616c697a656420536f6369616c204e6574776f726b81525081565b60606040805190810160405280602081526020017f49424320446563656e7472616c697a656420536f6369616c204e6574776f726b81525090509056fea165627a7a72305820b2df6af8c4a34d7720468b055a32ebd2adea8d42e11d6cd5f0e903b747eb66330029",
-  "deployedBytecode": "0x7300000000000000000000000000000000000000003014608060405260043610610063576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634d786e3e1461006857806394074b03146100eb575b600080fd5b61007061016e565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100b0578082015181840152602081019050610095565b50505050905090810190601f1680156100dd5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100f36101a7565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610133578082015181840152602081019050610118565b50505050905090810190601f1680156101605780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6040805190810160405280602081526020017f49424320446563656e7472616c697a656420536f6369616c204e6574776f726b81525081565b60606040805190810160405280602081526020017f49424320446563656e7472616c697a656420536f6369616c204e6574776f726b81525090509056fea165627a7a72305820b2df6af8c4a34d7720468b055a32ebd2adea8d42e11d6cd5f0e903b747eb66330029",
-  "sourceMap": "25:213:0:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
-  "deployedSourceMap": "25:213:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;49:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;49:77:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;137:99;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;137:99:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;49:77;;;;;;;;;;;;;;;;;;;;:::o;137:99::-;183:13;212:17;;;;;;;;;;;;;;;;;;205:24;;137:99;:::o",
-  "source": "pragma solidity ^0.5.0;\n\nlibrary Constants {\n    string public constant SocialNetworkName = \"IBC Decentralized Social Network\";\n    \n    function getNetworkName() public pure returns(string memory){\n      return SocialNetworkName;\n    }\n}",
-  "sourcePath": "/home/bawse/Documents/Dectralized-Social-Network/src/contracts/Constants.sol",
+  "bytecode": "0x610210610030600b82828239805160001a6073146000811461002057610022565bfe5b5030600052607381538281f3fe7300000000000000000000000000000000000000003014608060405260043610610063576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634d786e3e1461006857806394074b03146100eb575b600080fd5b61007061016e565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100b0578082015181840152602081019050610095565b50505050905090810190601f1680156100dd5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100f36101a7565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610133578082015181840152602081019050610118565b50505050905090810190601f1680156101605780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6040805190810160405280602081526020017f49424320446563656e7472616c697a656420536f6369616c204e6574776f726b81525081565b60606040805190810160405280602081526020017f49424320446563656e7472616c697a656420536f6369616c204e6574776f726b81525090509056fea165627a7a72305820afe34a816c78c66437cdd986aff22b9e8f44eb4ba8615512d1e77566543bdeef0029",
+  "deployedBytecode": "0x7300000000000000000000000000000000000000003014608060405260043610610063576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634d786e3e1461006857806394074b03146100eb575b600080fd5b61007061016e565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100b0578082015181840152602081019050610095565b50505050905090810190601f1680156100dd5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100f36101a7565b6040518080602001828103825283818151815260200191508051906020019080838360005b83811015610133578082015181840152602081019050610118565b50505050905090810190601f1680156101605780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6040805190810160405280602081526020017f49424320446563656e7472616c697a656420536f6369616c204e6574776f726b81525081565b60606040805190810160405280602081526020017f49424320446563656e7472616c697a656420536f6369616c204e6574776f726b81525090509056fea165627a7a72305820afe34a816c78c66437cdd986aff22b9e8f44eb4ba8615512d1e77566543bdeef0029",
+  "sourceMap": "27:219:0:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
+  "deployedSourceMap": "27:219:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;52:77;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;52:77:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;142:101;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;142:101:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;52:77;;;;;;;;;;;;;;;;;;;;:::o;142:101::-;188:13;218:17;;;;;;;;;;;;;;;;;;211:24;;142:101;:::o",
+  "source": "pragma solidity ^0.5.0;\r\n\r\nlibrary Constants {\r\n    string public constant SocialNetworkName = \"IBC Decentralized Social Network\";\r\n    \r\n    function getNetworkName() public pure returns(string memory){\r\n      return SocialNetworkName;\r\n    }\r\n}",
+  "sourcePath": "C:\\Users\\Abhishek\\Desktop\\git_projs\\Decentralized-Social-Network\\src\\contracts\\Constants.sol",
   "ast": {
-    "absolutePath": "/home/bawse/Documents/Dectralized-Social-Network/src/contracts/Constants.sol",
+    "absolutePath": "/C/Users/Abhishek/Desktop/git_projs/Decentralized-Social-Network/src/contracts/Constants.sol",
     "exportedSymbols": {
       "Constants": [
         13
@@ -78,7 +78,7 @@
             "name": "SocialNetworkName",
             "nodeType": "VariableDeclaration",
             "scope": 13,
-            "src": "49:77:0",
+            "src": "52:77:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -89,7 +89,7 @@
               "id": 2,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "49:6:0",
+              "src": "52:6:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -105,7 +105,7 @@
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "92:34:0",
+              "src": "95:34:0",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_d98febc856343d94768cb8d94ee7cc719198a94e446422b0c1a122a2e4fa52f1",
@@ -119,7 +119,7 @@
             "body": {
               "id": 11,
               "nodeType": "Block",
-              "src": "197:39:0",
+              "src": "202:41:0",
               "statements": [
                 {
                   "expression": {
@@ -129,7 +129,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 4,
-                    "src": "212:17:0",
+                    "src": "218:17:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_memory",
                       "typeString": "string memory"
@@ -138,7 +138,7 @@
                   "functionReturnParameters": 8,
                   "id": 10,
                   "nodeType": "Return",
-                  "src": "205:24:0"
+                  "src": "211:24:0"
                 }
               ]
             },
@@ -153,7 +153,7 @@
               "id": 5,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "160:2:0"
+              "src": "165:2:0"
             },
             "returnParameters": {
               "id": 8,
@@ -165,7 +165,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 12,
-                  "src": "183:13:0",
+                  "src": "188:13:0",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -176,7 +176,7 @@
                     "id": 6,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "183:6:0",
+                    "src": "188:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -186,23 +186,23 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "182:15:0"
+              "src": "187:15:0"
             },
             "scope": 13,
-            "src": "137:99:0",
+            "src": "142:101:0",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 14,
-        "src": "25:213:0"
+        "src": "27:219:0"
       }
     ],
-    "src": "0:238:0"
+    "src": "0:246:0"
   },
   "legacyAST": {
-    "absolutePath": "/home/bawse/Documents/Dectralized-Social-Network/src/contracts/Constants.sol",
+    "absolutePath": "/C/Users/Abhishek/Desktop/git_projs/Decentralized-Social-Network/src/contracts/Constants.sol",
     "exportedSymbols": {
       "Constants": [
         13
@@ -241,7 +241,7 @@
             "name": "SocialNetworkName",
             "nodeType": "VariableDeclaration",
             "scope": 13,
-            "src": "49:77:0",
+            "src": "52:77:0",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -252,7 +252,7 @@
               "id": 2,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "49:6:0",
+              "src": "52:6:0",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -268,7 +268,7 @@
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "92:34:0",
+              "src": "95:34:0",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_d98febc856343d94768cb8d94ee7cc719198a94e446422b0c1a122a2e4fa52f1",
@@ -282,7 +282,7 @@
             "body": {
               "id": 11,
               "nodeType": "Block",
-              "src": "197:39:0",
+              "src": "202:41:0",
               "statements": [
                 {
                   "expression": {
@@ -292,7 +292,7 @@
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 4,
-                    "src": "212:17:0",
+                    "src": "218:17:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_memory",
                       "typeString": "string memory"
@@ -301,7 +301,7 @@
                   "functionReturnParameters": 8,
                   "id": 10,
                   "nodeType": "Return",
-                  "src": "205:24:0"
+                  "src": "211:24:0"
                 }
               ]
             },
@@ -316,7 +316,7 @@
               "id": 5,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "160:2:0"
+              "src": "165:2:0"
             },
             "returnParameters": {
               "id": 8,
@@ -328,7 +328,7 @@
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "scope": 12,
-                  "src": "183:13:0",
+                  "src": "188:13:0",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -339,7 +339,7 @@
                     "id": 6,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "183:6:0",
+                    "src": "188:6:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -349,20 +349,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "182:15:0"
+              "src": "187:15:0"
             },
             "scope": 13,
-            "src": "137:99:0",
+            "src": "142:101:0",
             "stateMutability": "pure",
             "superFunction": null,
             "visibility": "public"
           }
         ],
         "scope": 14,
-        "src": "25:213:0"
+        "src": "27:219:0"
       }
     ],
-    "src": "0:238:0"
+    "src": "0:246:0"
   },
   "compiler": {
     "name": "solc",
@@ -372,12 +372,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xd616f2D6c9f4EB5940ab0F3d5Da52620c1Ed13b1",
-      "transactionHash": "0xd4d7ccc9bd6cf16b6bffa7da97c3ac1f68e8a56b2204d2654cb35986a84afca4"
+      "address": "0xbE8965358e6Cd91447073715DCBa91B61bfc80b1",
+      "transactionHash": "0xfd10828d6025cea07133847c7c7e7690270cce4668cfd571b752036e9487c67d"
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2021-11-21T12:53:57.461Z",
+  "updatedAt": "2021-11-21T14:13:30.577Z",
   "devdoc": {
     "methods": {}
   },

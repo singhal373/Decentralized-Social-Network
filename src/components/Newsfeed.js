@@ -10,6 +10,27 @@ class Newsfeed extends Component {
             <div className="content mr-auto ml-auto">
                 <div className="card mb-4" >
                 <div className="card-header">
+                    <small className="text-muted">Create a new post</small>
+                </div>
+                <ul id="postList" className="list-group list-group-flush">
+                    <li className="list-group-item">
+                    <textarea class="form-control form-rounded" rows="3"></textarea>
+                    </li>
+                    <li className="list-group-item py-2">
+                    <button className="float-right">
+                        Post
+                    </button>
+                    </li>
+                </ul>
+                </div>
+            </div>
+          </main>
+        </div>
+        <div className="row">
+          <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '500px' }}>
+            <div className="content mr-auto ml-auto">
+                <div className="card mb-4" >
+                <div className="card-header">
                     <small className="text-muted">Post Author: Satoshi Nakamoto</small>
                 </div>
                 <ul id="postList" className="list-group list-group-flush">
