@@ -42,19 +42,24 @@ class Home extends Component {
 
     // Network ID
     const networkId = await web3.eth.net.getId()
-    if( SocialNetwork.networks[networkId]) {
-      const socialNetwork = web3.eth.Contract(SocialNetwork.abi,  SocialNetwork.networks[networkId].address)
-      this.setState({ socialNetwork : socialNetwork})
+    const networkData = SocialNetwork.networks[networkId]
+    if( networkData) {
+      const socialNetwork = new web3.eth.Contract(SocialNetwork.abi, networkData.address)
+      console.log(socialNetwork)
+      this.setState({socialNetwork})
       const postCount = await socialNetwork.methods.postCount().call()
       this.setState({ postCount })
+      console.log(postCount)
 
-      // Load Posts
+      // Load Posts      const result = await socialNetwork.createPost('Some post content', { from: author })
+
       for (var i = 1; i <= postCount; i++) {
         const post = await socialNetwork.methods.posts(i).call()
         this.setState({
           posts: [...this.state.posts, post]
         })
       }
+      console.log({posts: this.state.posts})
       this.setState({ loading: false})
     } else {
       window.alert('SocialNetwork contract is not deployed to detected network.')
@@ -89,15 +94,15 @@ class Home extends Component {
               </li>
             </ul>
           </nav>
-      { this.state.loading
+      {/* { this.state.loading
         ? <div id="loader" className="text-center mt-5 pt-5 text-white"><p>Loading...</p></div>
-        :
+        : */}
          <Newsfeed
             posts={this.state.posts}
             createPost={this.createPost}
             tipPost={this.tipPost}
           />
-       }
+       {/* } */}
     </div>
     );
   }
