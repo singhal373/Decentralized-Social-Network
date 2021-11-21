@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Identicon from 'identicon.js';
 import logo from './img/sosh_logo.PNG';
 
 const styles = {

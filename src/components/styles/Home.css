@@ -1,0 +1,9 @@
+.fill-window {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    background-image:url("../images/bg9.jpg");
+    background-size: cover;
+}
