@@ -4,7 +4,11 @@ class Registration extends Component {
 
   render() {
     return (
-<div className="container-fluid mt-5 pt-5">      
+<div className="container-fluid mt-5 pt-5" style={{ backgroundImage: `url(${logo})` , backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        width: '100vw',
+        height: '100vh' }}>    
 <form>            
 <div className="row">
           <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '500px' }}>
