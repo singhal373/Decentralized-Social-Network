@@ -12,6 +12,7 @@ contract SocialNetwork {
     string content;
     uint tipAmount;
   }
+
   event PostCreated(
       address payable author,
       uint id,
