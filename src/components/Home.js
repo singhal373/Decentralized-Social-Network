@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Web3 from 'web3'
 import SocialNetwork from '../abis/SocialNetwork.json';
+import User from '../abis/User.json';
 import Main from './Main';
 import Newsfeed from './Newsfeed';
 import UserPage  from './UserPage';
@@ -21,9 +22,13 @@ class Home extends Component {
       postCount: 0,
       posts: [],
       loading: true, // default
+      user: null,
+      userCount: 0,
+      accounts: [],
     }    
     this.createPost = this.createPost.bind(this)
     this.tipPost = this.tipPost.bind(this)
+    this.getUsername = this.getUsername.bind(this)
 
   }
 
@@ -43,6 +48,22 @@ class Home extends Component {
     })
   };
 
+  async getUsername(addr) {
+    // this.setState({loading: true})
+    const username = await this.state.user.methods.usernames(addr).call()
+    // this.setState({ loading: false })
+    return username
+  }
+
+  // login(name) {
+  //   this.setState({loading: true})
+  //   // this.state.socialNetwork.methods.tipPost(id).send({ from: this.state.account, value: tipAmount})
+  //   // .once('receipt', (receipt) => {
+  //   //   this.setState({ loading: false })
+  //   // })
+
+  // }
+
   async loadBlockchainData() {
     const web3 = window.web3
 
@@ -53,6 +74,8 @@ class Home extends Component {
     // Network ID
     const networkId = await web3.eth.net.getId()
     const networkData = SocialNetwork.networks[networkId]
+    let done = 0
+
     if( networkData) {
       const socialNetwork = new web3.eth.Contract(SocialNetwork.abi, networkData.address)
       console.log(socialNetwork)
@@ -75,9 +98,40 @@ class Home extends Component {
       }
       console.log(this.state.posts.length, {posts: this.state.posts})
       console.log("Done loading blockchain")
-      this.setState({ loading: false})
+      // this.setState({ loading: false})
+      done = done + 1
     } else {
       window.alert('SocialNetwork contract is not deployed to detected network.')
+    }
+
+    const networkData_ = User.networks[networkId]
+    if(networkData_) {
+      const user = new web3.eth.Contract(User.abi, networkData_.address)
+      console.log(user)
+      this.setState({user})
+      const userCount = await user.methods.totalUsers().call()
+      this.setState({userCount})
+
+      for (var i = 1; i <= userCount; i++) {
+        const account = await user.methods.users(i).call()
+        // console.log(post)
+        this.setState({
+          accounts: [...this.state.accounts, account]
+        }, () => {
+          console.log(this.state.accounts)
+        })
+      }
+      // const account = await user.methods.accounts(this.state.account).call()
+      // this.setState({})
+      
+      // this.setState({ loading: false})
+      done = done + 1
+    } else {
+      window.alert('SocialNetwork contract is not deployed to detected network.')
+    }
+
+    if (done == 2) {
+      this.setState({ loading: false})
     }
   }
 
@@ -117,6 +171,7 @@ class Home extends Component {
             posts={this.state.posts}
             createPost={this.createPost}
             tipPost={this.tipPost}
+            getUsername={this.getUsername}
           />  
        }
     </div>
