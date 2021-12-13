@@ -12,7 +12,7 @@ contract User{
 		uint id;
 		bytes32 name;
 		bytes32 firstName;
-    	bytes32 lastName;
+    bytes32 lastName;
 	}
 
 	function createUser(bytes32 _name, bytes32 _firstname, bytes32 _lastname) public returns(uint){
