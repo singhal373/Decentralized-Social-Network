@@ -6,6 +6,7 @@ import Main from './Main';
 import Newsfeed from './Newsfeed';
 import UserPage  from './UserPage';
 import './styles/Home.css';
+import Login from './Login';
 
 class Home extends Component {
 
@@ -13,11 +14,12 @@ class Home extends Component {
     await this.loadWeb3()
     await this.loadBlockchainData()
   }
-  
+
   constructor(props) {
     super(props)
     this.state = {
       account: '',
+      username: null,
       socialNetwork: null,
       postCount: 0,
       posts: [],
@@ -25,9 +27,20 @@ class Home extends Component {
       user: null,
       userCount: 0,
       accounts: [],
+      loggedIn: false,
+      errorMessage: false,
     }    
     this.createPost = this.createPost.bind(this)
     this.tipPost = this.tipPost.bind(this)
+    this.checkCreds = this.checkCreds.bind(this)
+    this.logOut = this.logOut.bind(this)
+  }
+
+  componentDidMount() {
+    let loggedIn = window.localStorage.getItem('loggedIn')
+      this.setState({
+          loggedIn 
+      })
   }
 
   createPost(content) {
@@ -45,6 +58,16 @@ class Home extends Component {
       this.setState({ loading: false })
     })
   };
+
+  checkCreds(username, password) {
+    window.localStorage.setItem('loggedIn', true)
+    this.setState({loggedIn: true})
+  }
+
+  logOut() {
+    this.setState({loggedIn: false})
+    window.localStorage.clear();
+  }
 
   // async getUsername(addr) {
   //   // this.setState({loading: true})
@@ -91,6 +114,11 @@ class Home extends Component {
           console.log(this.state.accounts)
         })
       }
+
+      const my_acct = await user.methods.accounts(this.state.account).call()
+      const name = my_acct === 0 ? web3.utils.fromAscii("user") : my_acct.name
+      console.log("Username", name)
+      this.setState({username: name})
 
       if( networkData) {
         const socialNetwork = new web3.eth.Contract(SocialNetwork.abi, networkData.address)
@@ -162,17 +190,39 @@ class Home extends Component {
                 <medium id="account">Account: {this.state.account}</medium>
               </medium>
             </li>
+            {this.state.loggedIn ? 
+              <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
+                <medium className="text-white">
+                  <button class="link" onClick={this.logOut}> Log out, {
+                  // window.web3.utils.toAscii(this.state.username).replace(/\u0000/g, "") 
+                } 
+                  </button>
+                </medium>
+              </li>
+              : <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
+                <medium className="text-white">
+                  <medium id="account">Log in!</medium>
+                </medium>
+              </li>
+            }
           </ul>
         </nav>
-      { this.state.loading
-        ? <div id="loader" className="text-center mt-5 pt-5 text-white"><p>Loading...</p></div>
-        : <Newsfeed
-            author={this.state.account}
-            posts={this.state.posts}
-            createPost={this.createPost}
-            tipPost={this.tipPost}
-          />  
-       }
+        {this.state.loading ?
+            <div id="loader" className="text-center mt-5 pt-5 text-white"><p>Loading...</p></div>
+            : this.state.loggedIn ? 
+            <Newsfeed
+                author={this.state.account}
+                posts={this.state.posts}
+                createPost={this.createPost}
+                tipPost={this.tipPost}
+              />
+           : <Login
+                user={this.state.account}
+                // contract={this.state.user}
+                checkCreds={this.checkCreds}
+                errorMessage={this.state.errorMessage}
+           />
+        }
     </div>
     );
   }

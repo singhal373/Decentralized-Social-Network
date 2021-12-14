@@ -17,7 +17,8 @@
     right: 0;
     bottom: 0;
     /* margin: auto; */
-    background-color: rgba(0,0,0, 0.5);
+    /* background-image:url("../images/bg9.jpg"); */
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .popup_inner {
@@ -27,7 +28,7 @@
     top: 25%;
     bottom: 25%;
     margin: auto;
-    background: white;
+    /* background: white; */
 }
 
 button.link {
