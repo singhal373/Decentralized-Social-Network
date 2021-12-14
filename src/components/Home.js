@@ -19,7 +19,7 @@ class Home extends Component {
     super(props)
     this.state = {
       account: '',
-      username: null,
+      username: 0,
       socialNetwork: null,
       postCount: 0,
       posts: [],
@@ -61,7 +61,9 @@ class Home extends Component {
   };
 
   checkCreds(username, password) {
+    this.setState({username: username})
     window.localStorage.setItem('loggedIn', true)
+    window.localStorage.setItem('username', username)
     this.setState({loggedIn: true})
   }
 
@@ -75,6 +77,7 @@ class Home extends Component {
     .once('receipt', (receipt) => {
       window.localStorage.setItem('loggedIn', true)
       this.setState({ loggedIn: true })
+      this.setState({ username: name})
     })
   }
 
@@ -203,7 +206,7 @@ class Home extends Component {
               <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
                 <medium className="text-white">
                   <button class="link" onClick={this.logOut}> Log out, {
-                  // window.web3.utils.toAscii(this.state.username).replace(/\u0000/g, "") 
+                  this.state.username != 0 ? window.web3.utils.toAscii(this.state.username).replace(/\u0000/g, "") : "user"
                 } 
                   </button>
                 </medium>
