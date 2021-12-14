@@ -1,28 +1,56 @@
 import React, { Component } from 'react';
 import logo from './images/bg1.5.PNG';
+import Registration from './Registration';
+import { useHistory } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {createBrowserHistory} from "history";
+
+function reg(){
+
+    const navigate = useNavigate();
+
+  const routeChange = () =>{ 
+    let path = `url(${Registration})`; 
+    navigate(path);
+  }
+}
 
 class Login extends Component {
 
+    
   render() {
+
+
+
     return (
         <div className="container-fluid mt-5 pt-5" style={{ backgroundImage: `url(${logo})` , backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         width: '100vw',
         height: '100vh' }}>    
-<form>
+<form onSubmit={(event) => {
+                        event.preventDefault()
+                        const name = this.content.value
+                        const pass = this.content2.value
+                        console.log(name)
+                        console.log(pass)
+
+                        reg()
+                      //  this.props.createPost(text)
+                      }}>
 <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '500px' }}>
 
-                <h3 style={{ color: 'white' }}>Log in</h3>
+                <h3 style={{ color: 'white' }}>Log in {this.props.user}</h3>
 
                 <div className="form-group">
                     <label style={{ color: 'white' }}>Name:</label>
-                    <input type="email" className="form-control" placeholder="Enter Name" />
+                    <input type="string" className="form-control" placeholder="Enter Name" ref={(input) => { this.content = input}}/>
                 </div>
 
                 <div className="form-group">
                     <label style={{ color: 'white' }}>Password:</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                    <input type="password" className="form-control" placeholder="Enter password" ref={(input) => { this.content2 = input}}/>
                 </div>
 
                 <div className="form-group">
@@ -33,9 +61,7 @@ class Login extends Component {
                 </div>
 
                 <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
-                <p style={{ color: 'white' }} className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
-                </p>
+                
                 </main>
             </form>
             </div>
