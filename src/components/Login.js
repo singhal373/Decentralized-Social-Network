@@ -65,7 +65,7 @@ class Login extends Component {
                     <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
                     </form>
                     <button 
-                        class="link"
+                        class="button-54"
                         onClick={(event) => {
                             this.toggleOpenReg()
                         }}>
