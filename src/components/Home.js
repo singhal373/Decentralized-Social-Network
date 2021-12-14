@@ -186,25 +186,15 @@ class Home extends Component {
           </a>
           <ul className="navbar-nav px-3">
             <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-              <medium className="text-white">
-                <medium id="account">Account: {this.state.account}</medium>
-              </medium>
+              {/* <medium className="text-white"> */}
+                {/* <medium id="account">Account: {this.state.account}</medium> */}
+                {this.state.loggedIn ? 
+                  <medium className="text-white">
+                  <medium id="account">Account: {this.state.account}</medium><button class="button-54" onClick={this.logOut}>   Logout
+                  </button></medium>: <medium className="text-white">
+                  <medium id="account">Account: {this.state.account}</medium></medium>
+                }
             </li>
-            {this.state.loggedIn ? 
-              <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-                <medium className="text-white">
-                  <button class="link" onClick={this.logOut}> Log out, {
-                  // window.web3.utils.toAscii(this.state.username).replace(/\u0000/g, "") 
-                } 
-                  </button>
-                </medium>
-              </li>
-              : <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
-                <medium className="text-white">
-                  <medium id="account">Log in!</medium>
-                </medium>
-              </li>
-            }
           </ul>
         </nav>
         {this.state.loading ?

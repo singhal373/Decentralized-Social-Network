@@ -41,7 +41,7 @@ class Login extends Component {
                                     console.log(pass)
                                     }}>
                 <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '500px' }}>
-                    <h3 style={{ color: 'white' }}>Log in {this.props.user}</h3>
+                    <h3 style={{ color: 'white' }}>Hey,{this.props.user} Please log in!</h3>
                     <div className="form-group">
                         <label style={{ color: 'white' }}>Username:</label>
                         <input type="string" className="form-control" placeholder="Enter Name" ref={(input) => { this.uname = input}}/>

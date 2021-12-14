@@ -112,7 +112,7 @@ class Newsfeed extends Component {
                               TIPS: {window.web3.utils.fromWei(post[0].tipAmount.toString(), 'Ether')} ETH
                           </small>
                           <button 
-                          className="float-right"
+                          class="button-64"
                           onClick={(event) => {
                             const amt = window.web3.utils.toWei('0.1', 'Ether')
                             this.props.tipPost(post[0].id, amt)
