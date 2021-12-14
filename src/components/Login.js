@@ -6,15 +6,6 @@ import { useNavigate } from 'react-router-dom';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 import {createBrowserHistory} from "history";
 
-// function reg(){
-
-//     const navigate = useNavigate();
-
-//   const routeChange = () =>{ 
-//     let path = `url(${Registration})`; 
-//     navigate(path);
-//   }
-// }
 
 class Login extends Component {
 
@@ -64,6 +55,7 @@ class Login extends Component {
                     </div>
                     <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
                     </form>
+                    <br/>
                     <button 
                         class="button-54"
                         onClick={(event) => {

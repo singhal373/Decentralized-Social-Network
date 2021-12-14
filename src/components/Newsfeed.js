@@ -4,37 +4,15 @@ import UserPage from './UserPage';
 import './styles/Home.css';
 
 
-// class Popup extends Component {
-//   render() {
-//     return (
-//       <div className='popup'>
-//         <div className='popup_inner'>
-//           <h1>{this.props.text}</h1>
-//         <button onClick={this.props.closePopup}>close me</button>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-
 
 class Newsfeed extends Component {
   componentDidMount() {
     console.log(this.props)
   }
 
-  // constructor(props) {
-  //   super(props)
-  //   this.state = {
-  //     posts: this.props.posts
-  //   }    
-  // }
-
   constructor(props) {
     super(props);
     this.state = {
-      // posts: this.props.state,
       showUser: false,
       user: null
     };
@@ -51,7 +29,6 @@ class Newsfeed extends Component {
   }
 
   render() {
-    // console.log("Hello")
     console.log("In render")
     return (
       <div className="container-fluid mt-5 pt-5" style={{overflow: 'auto', height: 'inherit', display: 'block'}}>
@@ -139,7 +116,6 @@ class Newsfeed extends Component {
           })}
           { this.state.showUser ? 
           <UserPage
-            // text='Close Me'
             closePopup={this.togglePopup}
             user={this.state.user}
           />

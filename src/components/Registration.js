@@ -9,11 +9,6 @@ class Registration extends Component {
 
   render() {
     return (
-        // <div className="container-fluid mt-5 pt-5" style={{ backgroundImage: `url(${logo})` , backgroundPosition: 'center',
-        //         backgroundSize: 'cover',
-        //         backgroundRepeat: 'no-repeat',
-        //         width: '100vw',
-        //         height: '100vh' }}> 
 
             <form onSubmit={(event) => {
                         event.preventDefault()
@@ -55,7 +50,6 @@ class Registration extends Component {
                     </main>
                 </div>
             </form>
-            // </div>
     );
   }
 }

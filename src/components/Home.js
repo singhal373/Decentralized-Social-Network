@@ -81,21 +81,6 @@ class Home extends Component {
     })
   }
 
-  // async getUsername(addr) {
-  //   // this.setState({loading: true})
-  //   const username = await this.state.user.methods.usernames(addr).call()
-  //   // this.setState({ loading: false })
-  //   return username
-  // }
-
-  // login(name) {
-  //   this.setState({loading: true})
-  //   // this.state.socialNetwork.methods.tipPost(id).send({ from: this.state.account, value: tipAmount})
-  //   // .once('receipt', (receipt) => {
-  //   //   this.setState({ loading: false })
-  //   // })
-
-  // }
 
   async loadBlockchainData() {
     const web3 = window.web3

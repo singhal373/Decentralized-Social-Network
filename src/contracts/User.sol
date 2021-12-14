@@ -12,8 +12,7 @@ contract User{
 		uint id;
 		bytes32 name;
 		uint256 dateOfJoining;
-		// bytes32 password;
-		// address addr;
+
 	}
 
 	event UserCreated(
@@ -48,11 +47,4 @@ contract User{
 		names[_name] = keccak256(abi.encodePacked(_pass));
 		emit UserCreated(totalUsers, _name);
 	}
-
-	// function getUser(address pubkey) view public returns(uint, string memory){
-	// 	emit UserReturned(
-	// 		account[pubkey].id,
-	// 		account[pubkey].name
-	// 	);
-	// }
 }
