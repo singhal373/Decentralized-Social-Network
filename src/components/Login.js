@@ -44,7 +44,7 @@ class Login extends Component {
                 <h3 style={{ color: 'white' }}>Log in {this.props.user}</h3>
 
                 <div className="form-group">
-                    <label style={{ color: 'white' }}>Name:</label>
+                    <label style={{ color: 'white' }}>Username:</label>
                     <input type="string" className="form-control" placeholder="Enter Name" ref={(input) => { this.content = input}}/>
                 </div>
 
@@ -53,12 +53,7 @@ class Login extends Component {
                     <input type="password" className="form-control" placeholder="Enter password" ref={(input) => { this.content2 = input}}/>
                 </div>
 
-                <div className="form-group">
-                    <div className="custom-control custom-checkbox">
-                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label style={{ color: 'white' }} className="custom-control-label" htmlFor="customCheck1">Remember me</label>
-                    </div>
-                </div>
+            
 
                 <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
                 

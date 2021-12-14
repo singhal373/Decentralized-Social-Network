@@ -3,10 +3,19 @@ import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css'
 import Home from './components/Home';
 import * as serviceWorker from './serviceWorker';
-
-ReactDOM.render(<Home />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from './components/Login';
+import Registration from './components/Registration';
+import Newsfeed from './components/Newsfeed';
+export default function App(){
+    return (
+        <BrowserRouter>
+        <Routes>      
+         <Route path="/Login" element={<Login/>}/>
+         <Route path="/Registration" element={<Registration/>}/>
+            <Route path="/" element={<Home/>}/>
+            </Routes>
+        </BrowserRouter>
+    )
+}
+ReactDOM.render(<App />, document.getElementById('root'));
