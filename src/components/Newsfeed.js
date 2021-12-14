@@ -1,9 +1,53 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import UserPage from './UserPage';
+import './styles/Home.css';
+
+
+// class Popup extends Component {
+//   render() {
+//     return (
+//       <div className='popup'>
+//         <div className='popup_inner'>
+//           <h1>{this.props.text}</h1>
+//         <button onClick={this.props.closePopup}>close me</button>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+
 
 
 class Newsfeed extends Component {
   componentDidMount() {
     console.log(this.props)
+  }
+
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     posts: this.props.posts
+  //   }    
+  // }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      // posts: this.props.state,
+      showUser: false,
+      user: null
+    };
+    this.togglePopup = this.togglePopup.bind(this)
+  }
+
+  togglePopup(tup) {
+    this.setState({
+      user: tup
+    })
+    this.setState({
+      showUser: !this.state.showUser
+    });
   }
 
   render() {
@@ -49,21 +93,29 @@ class Newsfeed extends Component {
               <div className="content mr-auto ml-auto">
                     <div className="card mb-4" key={key}>
                       <div className="card-header">
-                          <small className="text-muted">{post.author}</small>
+                          <small className="text-muted">
+                              {/* <Link to={post[0].author} target="_blank"> */}
+                              <button class="link" onClick={(event) => {
+                            this.togglePopup([post[1], post[0].author])
+                              }}>
+                                {post[1].name != 0 ? window.web3.utils.toAscii(post[1].name).replace(/\u0000/g, "") : "user"}
+                              </button>
+                              {/* </Link> */}
+                          </small>
                       </div>
                       <ul id="postList" className="list-group list-group-flush">
                         <li className="list-group-item">
-                          <p>{post.content}</p>
+                          <p>{post[0].content}</p>
                         </li>
                         <li key={key} className="list-group-item py-2">
                           <small className="float-left mt-1 pr-5">
-                              TIPS: {window.web3.utils.fromWei(post.tipAmount.toString(), 'Ether')} ETH
+                              TIPS: {window.web3.utils.fromWei(post[0].tipAmount.toString(), 'Ether')} ETH
                           </small>
                           <button 
                           className="float-right"
                           onClick={(event) => {
                             const amt = window.web3.utils.toWei('0.1', 'Ether')
-                            this.props.tipPost(post.id, amt)
+                            this.props.tipPost(post[0].id, amt)
                           }}>
                               TIP 0.1 ETH
                           </button>
@@ -75,6 +127,14 @@ class Newsfeed extends Component {
           </div>
                   )
           })}
+          { this.state.showUser ? 
+          <UserPage
+            // text='Close Me'
+            closePopup={this.togglePopup}
+            user={this.state.user}
+          />
+          : null
+        }
         </div>
     );
   }

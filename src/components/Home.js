@@ -28,8 +28,6 @@ class Home extends Component {
     }    
     this.createPost = this.createPost.bind(this)
     this.tipPost = this.tipPost.bind(this)
-    this.getUsername = this.getUsername.bind(this)
-
   }
 
   createPost(content) {
@@ -48,12 +46,12 @@ class Home extends Component {
     })
   };
 
-  async getUsername(addr) {
-    // this.setState({loading: true})
-    const username = await this.state.user.methods.usernames(addr).call()
-    // this.setState({ loading: false })
-    return username
-  }
+  // async getUsername(addr) {
+  //   // this.setState({loading: true})
+  //   const username = await this.state.user.methods.usernames(addr).call()
+  //   // this.setState({ loading: false })
+  //   return username
+  // }
 
   // login(name) {
   //   this.setState({loading: true})
@@ -76,34 +74,6 @@ class Home extends Component {
     const networkData = SocialNetwork.networks[networkId]
     let done = 0
 
-    if( networkData) {
-      const socialNetwork = new web3.eth.Contract(SocialNetwork.abi, networkData.address)
-      console.log(socialNetwork)
-      this.setState({socialNetwork})
-      const postCount = await socialNetwork.methods.postCount().call()
-      this.setState({ postCount })
-      console.log("Number of posts", postCount)
-
-      // Load Posts      
-      // const result = await socialNetwork.createPost('Some post content', { from: accounts[1] })
-
-      for (var i = 1; i <= postCount; i++) {
-        const post = await socialNetwork.methods.posts(i).call()
-        // console.log(post)
-        this.setState({
-          posts: [...this.state.posts, post]
-        }, () => {
-          console.log(this.state.posts)
-        })
-      }
-      console.log(this.state.posts.length, {posts: this.state.posts})
-      console.log("Done loading blockchain")
-      // this.setState({ loading: false})
-      done = done + 1
-    } else {
-      window.alert('SocialNetwork contract is not deployed to detected network.')
-    }
-
     const networkData_ = User.networks[networkId]
     if(networkData_) {
       const user = new web3.eth.Contract(User.abi, networkData_.address)
@@ -121,6 +91,36 @@ class Home extends Component {
           console.log(this.state.accounts)
         })
       }
+
+      if( networkData) {
+        const socialNetwork = new web3.eth.Contract(SocialNetwork.abi, networkData.address)
+        console.log(socialNetwork)
+        this.setState({socialNetwork})
+        const postCount = await socialNetwork.methods.postCount().call()
+        this.setState({ postCount })
+        console.log("Number of posts", postCount)
+  
+        // Load Posts      
+        // const result = await socialNetwork.createPost('Some post content', { from: accounts[1] })
+  
+        for (var i = 1; i <= postCount; i++) {
+          const post = await socialNetwork.methods.posts(i).call()
+          // console.log(post)
+          const acct = await user.methods.accounts(post.author).call()
+          this.setState({
+            posts: [...this.state.posts, [post, acct]]
+          }, () => {
+            console.log(this.state.posts)
+          })
+        }
+        console.log(this.state.posts.length, {posts: this.state.posts})
+        console.log("Done loading blockchain")
+        // this.setState({ loading: false})
+        done = done + 1
+      } else {
+        window.alert('SocialNetwork contract is not deployed to detected network.')
+      }
+
       // const account = await user.methods.accounts(this.state.account).call()
       // this.setState({})
       
@@ -171,7 +171,6 @@ class Home extends Component {
             posts={this.state.posts}
             createPost={this.createPost}
             tipPost={this.tipPost}
-            getUsername={this.getUsername}
           />  
        }
     </div>
