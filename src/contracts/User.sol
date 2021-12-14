@@ -12,34 +12,41 @@ contract User{
 		uint id;
 		bytes32 name;
 		uint256 dateOfJoining;
+		// bytes32 password;
 		// address addr;
 	}
 
-	// event UserCreated(
-	// 	uint id,
-	// 	string name
-	// );
+	event UserCreated(
+		uint id,
+		bytes32 name
+	);
 
 	event LoggedIn(
 		bool b1
 	);
 
 	function login(bytes32 name, string memory pass) public{
+		require(name.length > 0);
+		require(bytes(pass).length > 0);
 		bytes32 p1 = names[name];
 		require(p1 > 0);
 		bytes32 p2 = keccak256(abi.encodePacked(pass));
-		emit LoggedIn(p1==p2);
+		address addr = msg.sender;
+		Account memory acc = accounts[addr];
+		emit LoggedIn(p1==p2 && name==acc.name);
 	}
 
-	function createUser(bytes32 _name) public {
+	function createUser(bytes32 _name, string memory _pass) public {
+		require(_name.length > 0);
+		require(bytes(_pass).length > 0);
 		totalUsers++;
 		address addr = msg.sender;
 		uint256 _dateOfJoining = block.timestamp;
 		Account memory acc = Account(totalUsers, _name, _dateOfJoining);
 		users[totalUsers] = acc;
 		accounts[addr] = acc;
-		// names[_name] = totalUsers;
-		// emit UserCreated(id, name);
+		names[_name] = keccak256(abi.encodePacked(_pass));
+		emit UserCreated(totalUsers, _name);
 	}
 
 	// function getUser(address pubkey) view public returns(uint, string memory){
