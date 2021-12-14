@@ -34,6 +34,7 @@ class Home extends Component {
     this.tipPost = this.tipPost.bind(this)
     this.checkCreds = this.checkCreds.bind(this)
     this.logOut = this.logOut.bind(this)
+    this.createUser = this.createUser.bind(this)
   }
 
   componentDidMount() {
@@ -67,6 +68,14 @@ class Home extends Component {
   logOut() {
     this.setState({loggedIn: false})
     window.localStorage.clear();
+  }
+
+  createUser(name, pass) {
+    this.state.user.methods.createUser(name, pass).send({ from: this.state.account})
+    .once('receipt', (receipt) => {
+      window.localStorage.setItem('loggedIn', true)
+      this.setState({ loggedIn: true })
+    })
   }
 
   // async getUsername(addr) {
@@ -211,6 +220,7 @@ class Home extends Component {
                 // contract={this.state.user}
                 checkCreds={this.checkCreds}
                 errorMessage={this.state.errorMessage}
+                createUser={this.createUser}
            />
         }
     </div>

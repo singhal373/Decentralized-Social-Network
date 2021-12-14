@@ -18,8 +18,20 @@ import {createBrowserHistory} from "history";
 
 class Login extends Component {
 
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            openReg: false,
+        };
+        this.toggleOpenReg = this.toggleOpenReg.bind(this)
+    }
     
+    toggleOpenReg() {
+        this.setState({
+        openReg: !this.state.openReg
+        });
+    }
+
   render() {
 
 
@@ -32,16 +44,16 @@ class Login extends Component {
             height: '100vh' }}>    
             {this.props.errorMessage ? "Wrong username or password" : ""
             }
-            <form onSubmit={(event) => {
-                                    event.preventDefault()
-                                    const name = this.uname.value
-                                    const pass = this.pwd.value
-                                    this.props.checkCreds(name, pass)
-                                    console.log(name)
-                                    console.log(pass)
-                                    }}>
                 <main role="main" className="col-lg-12 ml-auto mr-auto" style={{ maxWidth: '500px' }}>
-                    <h3 style={{ color: 'white' }}>Hey,{this.props.user} Please log in!</h3>
+                    <h3 style={{ color: 'white' }}>Log in</h3>
+                <form onSubmit={(event) => {
+                                        event.preventDefault()
+                                        const name = this.uname.value
+                                        const pass = this.pwd.value
+                                        this.props.checkCreds(name, pass)
+                                        console.log(name)
+                                        console.log(pass)
+                                        }}>
                     <div className="form-group">
                         <label style={{ color: 'white' }}>Username:</label>
                         <input type="string" className="form-control" placeholder="Enter Name" ref={(input) => { this.uname = input}}/>
@@ -51,9 +63,21 @@ class Login extends Component {
                         <input type="password" className="form-control" placeholder="Enter password" ref={(input) => { this.pwd = input}}/>
                     </div>
                     <button type="submit" className="btn btn-dark btn-lg btn-block">Sign in</button>
-
+                    </form>
+                    <button 
+                        class="button-54"
+                        onClick={(event) => {
+                            this.toggleOpenReg()
+                        }}>
+                        New User? Register.
+                    </button>
                 </main>
-            </form>
+            <br/><br/>
+            {this.state.openReg ? 
+            <Registration
+            createUser={this.props.createUser}
+            /> 
+            : ""}
         </div>
 
  );
