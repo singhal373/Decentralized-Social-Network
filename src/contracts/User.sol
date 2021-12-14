@@ -3,7 +3,7 @@ pragma solidity ^0.5.0;
 contract User{
 
 	mapping(uint => Account) public users;
-	mapping(address => bytes32) public usernames;
+	mapping(address => Account) public accounts;
 	mapping (bytes32 => bytes32) public names;
 	uint public totalUsers = 0;
 
@@ -34,7 +34,7 @@ contract User{
 		address addr = msg.sender;
 		Account memory acc = Account(totalUsers, _name);
 		users[totalUsers] = acc;
-		usernames[addr] = _name;
+		accounts[addr] = acc;
 		// names[_name] = totalUsers;
 		// emit UserCreated(id, name);
 	}
